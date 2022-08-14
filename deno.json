@@ -1,0 +1,36 @@
+{
+	"$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
+	"version": "0.0.1",
+	"tasks": {
+		"dev": "deno run -A --unstable --watch=static/,routes/ dev.ts --no-clear-screen --location=http://localhost:80/about",
+		"start": "deno run -A --unstable main.ts",
+		"wasmbuild": "deno run -A https://deno.land/x/wasmbuild@0.8.5/main.ts"
+	},
+	"compilerOptions": {
+		"allowJs": true,
+		"strict": true
+	},
+	"importMap": "./import_map.json",
+	"lint": {
+		"rules": {
+			"tags": ["recommended"],
+			"include": ["ban-untagged-todo"],
+			"exclude": ["no-unused-vars"]
+		},
+		"files": {
+			"exclude": ["static/", "target/", "wasm/"]
+		}
+	},
+	"fmt": {
+		"options": {
+			"useTabs": true,
+			"lineWidth": 100,
+			"indentWidth": 4,
+			"proseWrap": "preserve",
+			"singleQuote": true
+		},
+		"files": {
+			"exclude": ["static/", "target/", "wasm/"]
+		}
+	}
+}
